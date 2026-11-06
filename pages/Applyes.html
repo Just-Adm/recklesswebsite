@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ريكليس | التقديمات</title>
+    <link rel="icon" type="image/png" href="../images/RS.png">
+    <link rel="stylesheet" href="../css/applyes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap">
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../index.html">
+            </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <a href="../index.html" class="nav-link active">الرئيسية</a>
+            <a href="../pages/Rules.html" class="nav-link">القوانين</a>
+            <a href="../pages/Store.html" class="nav-link">المتجر</a>
+            <a href="../pages/Applyes.html" class="nav-link">التقديمات</a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
+
+    <section class="apply-header">
+        <div class="container">
+            <h1 class="page-title">التقديمات</h1>
+        </div>
+    </section>
+
+    <section class="apply-section">
+        <main class="container">
+        <div class="cards">
+
+            <div class="card">
+                <h2>طاقم الإدارة</h2>
+                <p>انضم إلى فريق إدارة السيرفر وساعد في تنظيم وصيانة تجربة رول بلاي سلسة.</p>
+                <button class="card-btn" onclick="openForm('إدارة')">قدم الآن</button>
+            </div>
+
+            <div class="card">
+                <h2>شرطة ريكليس</h2>
+                <p>كن ضابط شرطة في مدينة ريكليس  واحمِ المدينة مع الحفاظ على النظام.</p>
+                <button class="card-btn locked" disabled>التقديم مغلق</button>
+            </div>
+
+            <div class="card">
+                <h2>مشفى ريكليس</h2>
+                <p>انضم إلى فريق مسعفين ريكليس أنقذ الأرواح وساعد اللاعبين والمرضى المحتاجين.</p>
+                <button class="card-btn locked" disabled>التقديم مغلق</button>
+            </div>
+
+            <div class="card">
+                <h2>محكمة ريكليس</h2>
+                <p>كن محاميًا في مدينة ريكليس ودافع عن المواطنين في المحكمة مع ضمان تحقيق العدالة.</p>
+                <button class="card-btn locked" disabled>التقديم مغلق</button>
+            </div>
+
+        </div>
+    </main>
+    </section>
+    
+
+    <!-- Modal Form -->
+    <div id="formBox" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 id="formTitle"><i class="fas fa-file-alt"></i> تقديم على الإدارة</h3>
+                <button class="close-btn" onclick="closeForm()">✖</button>
+            </div>
+
+            <div class="form-body">
+
+                <div class="input-group">
+                    <label for="discordId">ايدي حسابك في ديسكورد</label>
+                    <input type="text" id="discordId" placeholder="مثال: 1340686102943498332">
+                </div>
+
+                <div class="input-group">
+                    <label for="name">اسمك</label>
+                    <input type="text" id="name" placeholder="أدخل اسمك الثنائي">
+                </div>
+
+                <div class="input-group">
+                    <label for="age">عمرك</label>
+                    <input type="number" id="age" placeholder="أدخل عمرك" min="13" max="25">
+                </div>
+
+                <div class="input-group">
+                    <label for="experience">خبراتك</label>
+                    <textarea id="experience" placeholder="اذكر خبراتك ..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button class="submit-btn" onclick="sendForm()">إرسال التقديم</button>
+                    <button class="cancel-btn" onclick="closeForm()">إلغاء</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Message -->
+    <div id="statusMessage" class="status-message">
+        <i class="fas fa-check-circle"></i>
+        <span id="statusText"></span>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <div class="footer-bottom">
+            <p>All rights reserved © 2025 Alpha Team | Not affiliated with Rockstar Games</p>
+        </div>
+
+    </div>
+</footer>
+
+    <script>
+    // ===================== Variables =====================
+    let applyType = "";
+    const webhookURL = "https://discord.com/api/webhooks/1458460688644313321/Ft3bWW6R5tJ5sZMadTtKhdauPM4rXBWQsZdibYK-3G5nI9yvlg8H5PHaZ9LDX-ezGzIQ";
+    const NL_Image = "https://media.discordapp.net/attachments/1416497509101998131/1459914092872470568/NL.png"
+
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    // ===================== Navbar Toggle =====================
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // ===================== Modal Form =====================
+    function openForm(type) {
+        applyType = type;
+        document.getElementById("formTitle").innerText = "تقديم على " + type;
+        document.getElementById("formBox").style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeForm() {
+        document.getElementById("formBox").style.display = "none";
+        document.body.style.overflow = "auto";
+        clearForm();
+    }
+
+    function clearForm() {
+        document.getElementById("discordId").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("experience").value = "";
+    }
+
+    function showStatus(message, isSuccess = true) {
+        const statusEl = document.getElementById("statusMessage");
+        const statusText = document.getElementById("statusText");
+
+        statusText.textContent = message;
+        statusEl.className = "status-message " + (isSuccess ? "success" : "error");
+        statusEl.querySelector("i").className = isSuccess ? "fas fa-check-circle" : "fas fa-exclamation-circle";
+
+        statusEl.classList.add("show");
+
+        setTimeout(() => {
+            statusEl.classList.remove("show");
+        }, 5000);
+    }
+
+    function validateForm() {
+        const discordId = document.getElementById("discordId").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const experience = document.getElementById("experience").value.trim();
+
+        if (!discordId) { showStatus("يرجى إدخال ايدي حسابك في ديسكورد", false); return false; }
+        if (!name) { showStatus("يرجى إدخال اسمك", false); return false; }
+        if (!age || age < 13 || age > 30) { showStatus("يرجى إدخال عمر صحيح (13 سنة فأكثر)", false); return false; }
+        if (!experience) { showStatus("يرجى إدخال خبراتك السابقة", false); return false; }
+
+        return true;
+    }
+
+    function sendForm() {
+        if (!validateForm()) return;
+
+        const data = {
+            embeds: [{
+                title: `**New introduction**`,
+                description: `**تقديم جديد على ${applyType}**`,
+                color: 9123072,
+                timestamp: new Date().toISOString(),
+                fields: [
+                    { name: `**أيدي الديسكورد:**`, value: `**\`${document.getElementById("discordId").value.trim()}\`**` },
+                    { name: `**إسم المقدم:**`, value: `**\`${document.getElementById("name").value.trim()}\`**` },
+                    { name: `**عمر المقدم:**`, value: `\`**${document.getElementById("age").value.trim()}**\`` },
+                    { name: `**الخبرات:**`, value: `**\`${document.getElementById("experience").value.trim()}\`**` }
+                ],
+                footer: { text: `تقديم جديد`, icon_url: NL_Image }
+            }]
+        };
+
+        showStatus("جاري إرسال التقديم...", true);
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                showStatus("تم إرسال التقديم بنجاح ✅ سيتم مراجعة طلبك قريبًا.");
+                closeForm();
+            } else throw new Error('فشل الإرسال');
+        })
+        .catch(() => showStatus("حدث خطأ أثناء إرسال التقديم ❌ يرجى المحاولة مرة أخرى.", false));
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeForm(); });
+    document.getElementById('formBox').addEventListener('click', e => { if (e.target === e.currentTarget) closeForm(); });
+
+    // ===================== Rules Accordion =====================
+    document.querySelectorAll('.rule-box').forEach(box => {
+        const header = box.querySelector('.rule-header');
+        const toggle = box.querySelector('.rule-toggle i');
+
+        header.addEventListener('click', () => {
+            const isActive = box.classList.contains('active');
+
+            document.querySelectorAll('.rule-box').forEach(otherBox => {
+                if (otherBox !== box) {
+                    otherBox.classList.remove('active');
+                    otherBox.querySelector('.rule-toggle i').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            if (isActive) {
+                box.classList.remove('active');
+                toggle.style.transform = 'rotate(0deg)';
+            } else {
+                box.classList.add('active');
+                toggle.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    // ===================== Smooth Scroll =====================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

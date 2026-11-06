@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ريكليس | المتجر</title>
+    <link rel="icon" type="image/png" href="../images/RS.png">
+    <link rel="stylesheet" href="../css/store.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap">
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../index.html">
+            </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <a href="../index.html" class="nav-link active">الرئيسية</a>
+            <a href="../pages/Rules.html" class="nav-link">القوانين</a>
+            <a href="../pages/Store.html" class="nav-link">المتجر</a>
+            <a href="../pages/Applyes.html" class="nav-link">التقديمات</a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
+
+    <section class="store-header">
+        <div class="container">
+            <h1 class="page-title">المتجر</h1>
+        </div>
+    </section>
+
+
+    <section id="store" class="store-section active">
+        <div class="container">
+            <h2 class="section-title">المتجر مغلق حتى اشعار اخر</h2>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+    <div class="container">
+
+        <div class="footer-bottom">
+            <p>All rights reserved © 2025 Alpha Team | Not affiliated with Rockstar Games</p>
+        </div>
+
+    </div>
+</footer>
+
+
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const storeSections = document.querySelectorAll('.store-section');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+                
+                tabBtns.forEach(tab => tab.classList.remove('active'));
+                storeSections.forEach(section => section.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

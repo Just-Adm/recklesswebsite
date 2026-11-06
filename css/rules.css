@@ -1,0 +1,514 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #c20505;
+    --dark-red: #8b0000;
+    --light-red: #ff1a1a;
+    --black: #000000;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2a2a2a;
+    --light-gray: #3a3a3a;
+    --white: #ffffff;
+    --text-light: #cccccc;
+    --text-muted: #b0b0b0;
+    --shadow: rgba(194, 5, 5, 0.3);
+    --gradient: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-light);
+    overflow-x: hidden;
+    background: #0f0202;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --------------- Navbar --------------- */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0);
+    display: flex;
+    z-index: 1000;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    direction: rtl;
+
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 150px; 
+}
+
+.nav-logo img {
+    display: block;
+    width: auto;
+    height: 100px; /* تكبير اللوغو */
+    visibility: visible;
+    z-index: 10;
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0px; /* زيادة المسافة بين اللوغو والقائمة */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    color: #c20505;
+}
+
+.hamburger {
+    display: none; /* يمكن تفعيله للـ mobile */
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+
+
+/* --------------- Rules header --------------- */
+
+.rules-header {
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.514), rgba(0, 0, 0, 0.521)),
+    url('../images/Banner2.png') center/cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-attachment: fixed; /* نفس الـ fixed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 16rem 0 9rem;
+}
+
+
+.page-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.page-title i {
+    color: var(--primary-red);
+    text-shadow: 0 0 20px var(--primary-red);
+}
+
+.highlight {
+    color: var(--primary-red);
+    text-shadow: 0 0 20px var(--primary-red);
+}
+
+.page-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Rules Section */
+.rules-section {
+    padding: 4rem 0 6rem;
+    background: var(--dark-gray)
+}
+
+.rules-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Rule Box Styles */
+.rule-box {
+    background: var(--medium-gray);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rule-box:hover {
+    border-color: var(--primary-red);
+
+    transform: translateY(-2px);
+}
+
+.rule-box.active {
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 30px rgba(218, 5, 5, 0.3);
+}
+
+/* Rule Header */
+.rule-header {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--light-gray), var(--medium-gray));
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.rule-box:hover .rule-header {
+    background: linear-gradient(135deg, var(--medium-gray), var(--light-gray));
+}
+
+.rule-box.active .rule-header {
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+}
+
+.rule-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rule-title i {
+    font-size: 1.5rem;
+    color: var(--primary-red);
+    transition: all 0.3s ease;
+}
+
+.rule-box.active .rule-title i {
+    color: var(--white);
+}
+
+.rule-title h3 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+}
+
+.rule-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(194, 5, 5, 0.1);
+    transition: all 0.3s ease;
+}
+
+.rule-toggle i {
+    font-size: 1.2rem;
+    color: var(--primary-red);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rule-box.active .rule-toggle {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.rule-box.active .rule-toggle i {
+    color: var(--white);
+}
+
+/* Rule Content */
+.rule-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--dark-gray);
+}
+
+.rule-box.active .rule-content {
+    max-height: 1000px;
+}
+
+.rule-details {
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.rule-details h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rule-details ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.rule-details li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.rule-details li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: var(--primary-red);
+    font-size: 0.8rem;
+    top: 0.2rem;
+}
+
+.rule-details li strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Rule Content one long message */
+.rule-message {
+    background: var(--dark-gray);
+    color: #f0f0f0;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-family: 'Tajawal', sans-serif; /* نفس خط العناوين */
+}
+
+.rule-message h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rule-message p {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap; /* دعم المسافات والفواصل والسطر الجديد */
+}
+
+
+/* Rule Note */
+.rule-note {
+    background: linear-gradient(135deg, rgba(194, 5, 5, 0.1), rgba(139, 0, 0, 0.1));
+    border: 1px solid var(--primary-red);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.rule-note i {
+    color: var(--primary-red);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.rule-note span {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* --------------- Footer Section --------------- */
+
+.footer {
+    background: var(--dark-gray);
+    padding: 1.5rem 0;
+    border-top: 1px solid #3f3e3e;
+}
+
+.footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #cecaca;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .rule-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .rule-title h3 {
+        font-size: 1.2rem;
+    }
+
+    .rule-details {
+        padding: 1.5rem;
+    }
+
+    .rule-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .rule-details li {
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .rule-header {
+        padding: 1rem;
+    }
+
+    .rule-title {
+        gap: 0.5rem;
+    }
+
+    .rule-title i {
+        font-size: 1.2rem;
+    }
+
+    .rule-title h3 {
+        font-size: 1.1rem;
+    }
+
+    .rule-details {
+        padding: 1rem;
+    }
+
+    .rule-note {
+        padding: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Smooth animations */
+@media (prefers-reduced-motion: no-preference) {
+    .rule-box {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .rule-content {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .rule-toggle i {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}

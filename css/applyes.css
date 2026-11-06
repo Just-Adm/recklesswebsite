@@ -1,0 +1,508 @@
+:root {
+ --primary: #c20505;
+ --primary-dark: #8b0000;
+ --primary-light: #ff1a1a;
+ --primary-red: #c20505;
+ --dark-red: #8b0000;
+ --light-red: #ff1a1a;
+ --secondary: #000000;
+ --light-bg: #f8f9fa;
+ --card-bg: #ffffff;
+ --text-light: #cccccc;
+ --text-muted: #b0b0b0;
+ --text-dark: #2b2a2a;
+ --text-light: #c7c0c0;
+ --light-gray: #3a3a3a;
+ --dark-gray: #1a1a1a;
+ --medium-gray: #2a2a2a;
+ --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+ --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+ --border-radius: 16px;
+ --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-light);
+    overflow-x: hidden;
+    background: #070202;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --------------- Navbar --------------- */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0);
+    display: flex;
+    z-index: 1000;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    direction: rtl;
+
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 150px; 
+}
+
+.nav-logo img {
+    display: block;
+    width: auto;
+    height: 100px; /* تكبير اللوغو */
+    visibility: visible;
+    z-index: 10;
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0px; /* زيادة المسافة بين اللوغو والقائمة */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    color: #b80808;
+}
+
+.hamburger {
+    display: none; /* يمكن تفعيله للـ mobile */
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+
+/* --------------- header --------------- */
+
+.apply-header {
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.514), rgba(0, 0, 0, 0.521)),
+    url('../images/Banner2.png') center/cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-attachment: fixed; /* نفس الـ fixed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 16rem 0 9rem;
+}
+
+.page-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.page-title i {
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary);
+}
+
+.highlight {
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary);
+}
+
+.page-subtitle {
+    font-size: 1.3rem;
+    color: var(--primary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --------------- cards --------------- */
+
+.apply-section {
+    padding: 4rem 0 6rem;
+    background: var(--dark-gray);
+}
+
+
+.cards {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 30px;
+ margin-top: 120px;
+}
+
+.card {
+ background: var(--medium-gray);
+ border-radius: var(--border-radius);
+ box-shadow: var(--shadow);
+ width: 320px;
+ padding: 35px 30px;
+ text-align: center;
+ transition: var(--transition);
+ position: relative;
+ overflow: hidden;
+ border-top: 5px solid var(--primary);
+}
+
+.card:hover {
+ transform: translateY(-10px);
+ box-shadow: var(--shadow-hover);
+}
+
+.card::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ right: 0;
+ width: 100%;
+ height: 5px;
+ background: linear-gradient(to left, var(--primary), var(--primary-light));
+}
+
+.card h2 {
+ color: var(--card-bg);
+ margin-bottom: 15px;
+ font-size: 1.8rem;
+}
+
+.card p {
+ color: var(--text-light);
+ margin-bottom: 25px;
+ font-size: 1.05rem;
+}
+
+.card-btn {
+ background: #18970d;
+ color: white;
+ border: none;
+ padding: 14px 32px;
+ border-radius: 50px;
+ font-size: 1.05rem;
+ font-weight: 600;
+ cursor: pointer;
+ transition: var(--transition);
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ box-shadow: 0 5px 15px rgba(10, 177, 4, 0.2);
+}
+
+.card-btn:hover {
+ background: #18970d;
+ box-shadow: 0 8px 20px rgba(10, 177, 4, 0.2);
+ transform: translateY(-3px);
+}
+
+.card-btn.locked {
+  background: #a00707;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.85;
+}
+
+.card-btn.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* --------------- Modal Discord Style --------------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85); /* داكن مثل ديسكورد */
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: #2f3136; /* خلفية مودال ديسكورد */
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+  color: #dcddde; /* لون الخطوط الأساسية */
+  font-family: 'Tajawal', sans-serif;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* رأس المودال */
+.modal-header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #36393f; /* تدرج بسيط */
+  border-bottom: 1px solid #202225;
+}
+
+.modal-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #b9bbbe;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 18px;
+}
+
+.close-btn:hover {
+  background: rgba(255,255,255,0.1);
+  transform: rotate(90deg);
+}
+
+/* جسم المودال */
+.form-body {
+  padding: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #dcddde;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #40444b;
+  color: #dcddde;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #72767d;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: 2px solid #d80707; /* برتقالي عند التركيز */
+  background: #4f545c;
+}
+
+/* أزرار المودال */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  flex: 1;
+  background: #18b909; /* زر برتقالي */
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #37c713;
+}
+
+.cancel-btn {
+  flex: 1;
+  background: #40444b;
+  color: #dcddde;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #4f545c;
+}
+
+
+/* --------------- status --------------- */
+
+.status-message {
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
+ padding: 18px 25px;
+ border-radius: 12px;
+ color: white;
+ font-weight: 600;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+ z-index: 1001;
+ transform: translateY(100px);
+ opacity: 0;
+ transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.status-message.show {
+ transform: translateY(0);
+ opacity: 1;
+ }
+
+.status-message.success {
+ background: linear-gradient(to right, #2ecc71, #27ae60);
+}
+
+.status-message.error {
+ background: linear-gradient(to right, #e74c3c, #c0392b);
+}
+
+/* --------------- Footer Section --------------- */
+
+.footer {
+    background: var(--dark-gray);
+    padding: 1.5rem 0;
+    border-top: 1px solid #3f3e3e;
+}
+
+.footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #cecaca;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2.2rem;
+      }
+      
+      .cards {
+        gap: 20px;
+      }
+      
+      .card {
+        width: 100%;
+        max-width: 400px;
+      }
+      
+      .form-actions {
+        flex-direction: column;
+      }
+      
+      .status-message {
+        right: 20px;
+        left: 20px;
+        bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 1.9rem;
+      }
+      
+      .modal-header {
+        padding: 20px;
+      }
+      
+      .form-body {
+        padding: 20px;
+      }
+      
+      .input-group input,
+      .input-group textarea {
+        padding: 14px 16px;
+      }
+    }
