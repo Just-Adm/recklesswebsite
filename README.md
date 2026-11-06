@@ -2,7 +2,7 @@
 
 A roleplay community website for the Reckless server. It explains the server rules and systems, shows live community stats, and includes application forms for staff and job roles.
 
-**Live:** https://YOUR-USERNAME.github.io/reckless/
+**Live:** https://just-adm.github.io/recklesswebsite/index.html
 
 ## What it is
 
